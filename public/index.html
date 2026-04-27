@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Board</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Kanban Board</h1>
+      <div id="user-info"></div>
+    </header>
+
+    <main>
+      <section id="auth-section" class="panel">
+        <div class="tabs">
+          <button id="show-login" class="active">Login</button>
+          <button id="show-register">Register</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required minlength="8" />
+          <button type="submit">Sign In</button>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+          <input type="text" id="register-name" placeholder="Name" required />
+          <input type="email" id="register-email" placeholder="Email" required />
+          <input type="password" id="register-password" placeholder="Password (min 8 chars)" required minlength="8" />
+          <button type="submit">Create Account</button>
+        </form>
+      </section>
+
+      <section id="board-section" class="hidden">
+        <form id="new-card-form" class="new-card-form">
+          <input type="text" id="card-title" placeholder="New task title" required />
+          <input type="text" id="card-description" placeholder="Description (optional)" />
+          <button type="submit">Add Task</button>
+        </form>
+
+        <div class="board">
+          <div class="column" data-status="todo">
+            <h2>To Do</h2>
+            <div class="cards" id="col-todo"></div>
+          </div>
+          <div class="column" data-status="in_progress">
+            <h2>In Progress</h2>
+            <div class="cards" id="col-in_progress"></div>
+          </div>
+          <div class="column" data-status="done">
+            <h2>Done</h2>
+            <div class="cards" id="col-done"></div>
+          </div>
+        </div>
+
+        <button id="logout" class="logout-btn">Logout</button>
+      </section>
+
+      <p id="message"></p>
+    </main>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
